@@ -127,29 +127,18 @@ export default function useAxios(config, options) {
 
   options = { manual: false, useCache: true, ...options }
 
-  const destroyed = React.createRef()
   const [state, dispatch] = React.useReducer(
     reducer,
     createInitialState(options)
   )
-
-  const dispatchCheck = action => {
-    if (!destroyed.current) {
-      dispatch(action);
-    }
-  }
 
   if (typeof window === 'undefined' && !options.manual) {
     __ssrPromises.push(axiosInstance({ ...config, adapter: cacheAdapter }))
   }
 
   React.useEffect(() => {
-    destroyed.current = false;
     if (!options.manual) {
       executeRequest(config, options, dispatch)
-    }
-    return () => {
-      destroyed.current = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stringifiedConfig])
@@ -159,7 +148,7 @@ export default function useAxios(config, options) {
       return executeRequest(
         { ...config, ...configOverride },
         { useCache: false, ...options },
-        dispatchCheck
+        dispatch
       )
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
