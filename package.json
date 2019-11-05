@@ -1,6 +1,6 @@
 {
   "name": "axios-hooks",
-  "version": "1.5.0-0",
+  "version": "1.6.0",
   "description": "axios-hooks",
   "keywords": [
     "axios",
@@ -43,22 +43,22 @@
     "axios": "^0.18.0 || ^0.19.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.6.4",
-    "@babel/core": "7.6.4",
+    "@babel/cli": "7.7.0",
+    "@babel/core": "7.7.0",
     "@babel/plugin-transform-runtime": "7.6.2",
-    "@babel/preset-env": "7.6.3",
-    "@testing-library/react-hooks": "3.1.0",
-    "@types/jest": "24.0.19",
+    "@babel/preset-env": "7.7.0",
+    "@testing-library/react-hooks": "3.2.1",
+    "@types/jest": "24.0.21",
     "@types/lru-cache": "5.1.0",
-    "@types/node": "12.11.5",
-    "@types/react": "16.9.9",
-    "@types/react-dom": "16.9.2",
+    "@types/node": "12.12.5",
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.3",
     "axios": "0.19.0",
     "babel-eslint": "10.0.3",
     "cross-env": "6.0.3",
     "cz-conventional-changelog": "3.0.2",
-    "eslint": "6.5.1",
-    "eslint-config-prettier": "6.4.0",
+    "eslint": "6.6.0",
+    "eslint-config-prettier": "6.5.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-prettier": "3.1.1",
     "eslint-plugin-react-hooks": "2.2.0",
@@ -77,7 +77,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "post-merge": "npm i"
     }
   },
   "lint-staged": {
